@@ -221,8 +221,12 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let newStr = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    newStr += str[i];
+  }
+  return newStr;
 }
 
 /**
@@ -237,8 +241,18 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  const str = Math.abs(num).toString();
+  let res = '';
+  const isNegative = num < 0;
+
+  for (let i = 0; i < str.length; i += 1) {
+    const char = str[i];
+    if (char !== '0') res = char + res;
+    else if (char === '0' && str[i + 1] && str[i + 1] !== '0') res = char + res;
+  }
+
+  return Number(isNegative ? res * -1 : res);
 }
 
 /**
@@ -279,8 +293,17 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const arr = num
+    .toString(10)
+    .split('')
+    .map((int) => parseInt(int, 10))
+    .reduce((sum, cur) => sum + cur, 0);
+
+  if (arr <= 9) {
+    return arr;
+  }
+  return getDigitalRoot(arr);
 }
 
 /**
@@ -306,6 +329,35 @@ function getDigitalRoot(/* num */) {
  */
 function isBracketsBalanced(/* str */) {
   throw new Error('Not implemented');
+  // let leftpar = 0;
+  // let rightpar = 0;
+  // let leftbrace = 0;
+  // let rightbrace = 0;
+  // let leftcurl = 0;
+  // let rightcurl = 0;
+  // for (let index = 0; index < str.length; index += 1) {
+  //   if (str[index] === ')') {
+  //     leftpar += 1;
+  //   } else if (str[index] === '(') {
+  //     rightpar += 1;
+  //   } else if (str[index] === '[') {
+  //     leftbrace += 1;
+  //   } else if (str[index] === ']') {
+  //     rightbrace += 1;
+  //   } else if (str[index] === '{') {
+  //     leftcurl += 1;
+  //   } else if (str[index] === '}') {
+  //     rightcurl += 1;
+  //   }
+  // }
+  // if (
+  //   leftcurl === rightcurl &&
+  //   leftbrace === rightbrace &&
+  //   leftpar === rightpar
+  // ) {
+  //   return true;
+  // }
+  // return false;
 }
 
 /**
