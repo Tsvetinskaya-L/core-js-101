@@ -5,7 +5,6 @@
  *                                                                                                *
  ************************************************************************************************ */
 
-
 /**
  * Return Promise object that is resolved with string value === 'Hooray!!! She said "Yes"!',
  * if boolean value === true is passed, resolved with string value === 'Oh no, she said "No".',
@@ -30,8 +29,20 @@
  */
 function willYouMarryMe(/* isPositiveAnswer */) {
   throw new Error('Not implemented');
-}
+  // const answerTrue = 'Hooray!!! She said "Yes"!';
+  // const answerFalse = 'Oh no, she said "No".';
+  // const answerEmpty = 'Wrong parameter is passed! Ask her again.';
 
+  // return new Promise((res, rej) => {
+  //   if (isPositiveAnswer) {
+  //     res(answerTrue);
+  //   } else if (!isPositiveAnswer) {
+  //     rej(answerFalse);
+  //   } else {
+  //     throw new Error(answerEmpty);
+  //   }
+  // });
+}
 
 /**
  * Return Promise object that should be resolved with array containing plain values.
